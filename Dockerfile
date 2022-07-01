@@ -13,20 +13,6 @@ HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
 USER root
 
-RUN apt-get update \
- && apt-get -y install \
-      python3 \
-      python3-pip \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
-# Install packages via PIP.
-
-COPY requirements.txt ./
-RUN pip3 install --upgrade pip \
- && pip3 install -r requirements.txt \
- && rm requirements.txt
-
 # Install packages via apt.
 
 # Copy files from repository.
