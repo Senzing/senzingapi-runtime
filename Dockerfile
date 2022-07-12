@@ -7,14 +7,14 @@ FROM ${BASE_IMAGE} as builder
 
 # Create the runtime image.
 
-ENV REFRESHED_AT=2022-07-01
+ENV REFRESHED_AT=2022-07-12
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
-      Version="0.1.0"
+      Version="3.1.0"
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
-ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=0.1.0-22181"
+ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.1.2-22193"
 ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com/senzingrepo_1.0.0-1_amd64.deb"
 
 # Run as "root" for system installation.
@@ -52,33 +52,22 @@ RUN apt -y install ${SENZING_APT_INSTALL_PACKAGE}
 
 FROM ${BASE_IMAGE} AS runner
 
-ENV REFRESHED_AT=2022-07-01
+ENV REFRESHED_AT=2022-07-12
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
-      Version="0.1.0"
+      Version="3.1.0"
 
 RUN apt update \
  && apt -y install \
-      libssl1.1 \
-      # libexpat1 \
-      # libmpdec3 \
-      # libpython3-stdlib \
-      # libpython3.9-minimal \
-      # libpython3.9-stdlib \
-      # media-types \
-      # python3 \
-      # python3-minimal \
-      # python3.9\
-      # python3.9-minimal \
-      # sqlite3 \
+        libssl1.1 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
 # Copy files from builder.
 
-COPY --from=builder /opt/senzing          /opt/senzing
-COPY --from=builder /etc/opt/senzing      /etc/opt/senzing
+COPY --from=builder /opt/senzing      /opt/senzing
+COPY --from=builder /etc/opt/senzing  /etc/opt/senzing
 
 # Set environment variables for root.
 
@@ -88,4 +77,3 @@ ENV LD_LIBRARY_PATH=/opt/senzing/g2/lib
 
 WORKDIR /
 CMD ["/bin/bash"]
-
