@@ -59,10 +59,6 @@ LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
       Version="3.1.0"
 
-RUN apt update \
- && apt clean \
- && rm -rf /var/lib/apt/lists/*
-
 # Copy files from builder.
 
 COPY --from=builder /opt/senzing      /opt/senzing
