@@ -29,7 +29,7 @@ ENV TERM=xterm
 # Install packages via apt.
 
 RUN apt update \
- && apt-get -y install \
+ && apt -y install \
         curl \
         gnupg \
         wget
@@ -60,7 +60,7 @@ LABEL Name="senzing/senzingapi-runtime" \
       Version="3.1.0"
 
 RUN apt update \
- && apt-get clean \
+ && apt clean \
  && rm -rf /var/lib/apt/lists/*
 
 # Copy files from builder.
