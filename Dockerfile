@@ -11,7 +11,7 @@ ENV REFRESHED_AT=2022-07-14
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
-      Version="3.1.0"
+      Version="3.1.1"
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
 ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.1.2-22194"
@@ -57,7 +57,7 @@ ENV REFRESHED_AT=2022-07-14
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
-      Version="3.1.0"
+      Version="3.1.1"
 
 # Copy files from builder.
 
