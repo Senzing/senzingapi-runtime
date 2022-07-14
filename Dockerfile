@@ -7,14 +7,14 @@ FROM ${BASE_IMAGE} as builder
 
 # Create the runtime image.
 
-ENV REFRESHED_AT=2022-07-12
+ENV REFRESHED_AT=2022-07-14
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
       Version="3.1.0"
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
-ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.1.2-22193"
+ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.1.2-22194"
 ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com/senzingrepo_1.0.0-1_amd64.deb"
 
 # Run as "root" for system installation.
@@ -52,7 +52,7 @@ RUN apt -y install ${SENZING_APT_INSTALL_PACKAGE}
 
 FROM ${BASE_IMAGE} AS runner
 
-ENV REFRESHED_AT=2022-07-12
+ENV REFRESHED_AT=2022-07-14
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
