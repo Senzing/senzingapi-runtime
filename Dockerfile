@@ -12,16 +12,11 @@ ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.1.2-22194"
 ARG SENZING_APT_REPOSITORY_NAME="senzingrepo_1.0.0-1_amd64.deb"
 ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com"
 
-ARG IMAGE_NAME="senzing/senzingapi-runtime"
-ARG IMAGE_MAINTAINER="support@senzing.com"
-ARG IMAGE_REFRESHED_AT="2022-07-14"
-ARG IMAGE_VERSION="3.1.1"
+ENV REFRESHED_AT=2022-07-14
 
-ENV REFRESHED_AT=${IMAGE_REFRESHED_AT}
-
-LABEL Name=${IMAGE_NAME} \
-      Maintainer=${IMAGE_MAINTAINER} \
-      Version=${IMAGE_VERSION}
+LABEL Name="senzing/senzingapi-runtime" \
+      Maintainer="support@senzing.com" \
+      Version="3.1.1"
 
 # Run as "root" for system installation.
 
@@ -57,12 +52,6 @@ RUN apt -y install ${SENZING_APT_INSTALL_PACKAGE}
 # -----------------------------------------------------------------------------
 
 FROM ${BASE_IMAGE} AS runner
-
-ENV REFRESHED_AT=${IMAGE_REFRESHED_AT}
-
-LABEL Name=${IMAGE_NAME} \
-      Maintainer=${IMAGE_MAINTAINER} \
-      Version=${IMAGE_VERSION}
 
 # Copy files from builder.
 
