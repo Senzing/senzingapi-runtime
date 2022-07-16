@@ -1,11 +1,16 @@
 ARG BASE_IMAGE=debian:11.3-slim@sha256:f6957458017ec31c4e325a76f39d6323c4c21b0e31572efa006baa927a160891
+
+ARG IMAGE_NAME="senzing/senzingapi-runtime"
+ARG IMAGE_MAINTAINER="support@senzing.com"
+ARG IMAGE_VERSION="3.1.1"
+
 FROM ${BASE_IMAGE} as builder
 
 # -----------------------------------------------------------------------------
 # Stage: Builder
 # -----------------------------------------------------------------------------
 
-# Create the runtime image.
+# Create the build image.
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
 ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.1.2-22194"
@@ -14,9 +19,13 @@ ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com"
 
 ENV REFRESHED_AT=2022-07-14
 
-LABEL Name="senzing/senzingapi-runtime" \
-      Maintainer="support@senzing.com" \
-      Version="3.1.1"
+ARG IMAGE_NAME
+ARG IMAGE_MAINTAINER
+ARG IMAGE_VERSION
+
+LABEL Name=${IMAGE_NAME} \
+      Maintainer=${IMAGE_MAINTAINER} \
+      Version=${IMAGE_VERSION}
 
 # Run as "root" for system installation.
 
@@ -52,6 +61,14 @@ RUN apt -y install ${SENZING_APT_INSTALL_PACKAGE}
 # -----------------------------------------------------------------------------
 
 FROM ${BASE_IMAGE} AS runner
+
+ARG IMAGE_NAME
+ARG IMAGE_MAINTAINER
+ARG IMAGE_VERSION
+
+LABEL Name=${IMAGE_NAME} \
+      Maintainer=${IMAGE_MAINTAINER} \
+      Version=${IMAGE_VERSION}
 
 # Copy files from builder.
 
