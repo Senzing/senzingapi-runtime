@@ -4,11 +4,11 @@ ARG IMAGE_NAME="senzing/senzingapi-runtime"
 ARG IMAGE_MAINTAINER="support@senzing.com"
 ARG IMAGE_VERSION="3.1.1"
 
-FROM ${BASE_IMAGE} as builder
-
 # -----------------------------------------------------------------------------
 # Stage: Builder
 # -----------------------------------------------------------------------------
+
+FROM ${BASE_IMAGE} as builder
 
 # Create the build image.
 
