@@ -1,21 +1,23 @@
 ARG BASE_IMAGE=debian:11.3-slim@sha256:f6957458017ec31c4e325a76f39d6323c4c21b0e31572efa006baa927a160891
-FROM ${BASE_IMAGE} as builder
+
+ARG IMAGE_NAME="senzing/senzingapi-runtime"
+ARG IMAGE_MAINTAINER="support@senzing.com"
+ARG IMAGE_VERSION="3.1.1"
 
 # -----------------------------------------------------------------------------
 # Stage: Builder
 # -----------------------------------------------------------------------------
 
-# Create the runtime image.
+FROM ${BASE_IMAGE} as builder
 
-ENV REFRESHED_AT=2022-07-14
-
-LABEL Name="senzing/senzingapi-runtime" \
-      Maintainer="support@senzing.com" \
-      Version="3.1.0"
+# Create the build image.
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
 ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.1.2-22194"
-ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com/senzingrepo_1.0.0-1_amd64.deb"
+ARG SENZING_APT_REPOSITORY_NAME="senzingrepo_1.0.0-1_amd64.deb"
+ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com"
+
+ENV REFRESHED_AT=2022-07-14
 
 # Run as "root" for system installation.
 
@@ -28,7 +30,7 @@ ENV TERM=xterm
 # Install packages via apt.
 
 RUN apt update \
- && apt-get -y install \
+ && apt -y install \
         curl \
         gnupg \
         wget
@@ -36,10 +38,10 @@ RUN apt update \
 # Install Senzing repository index.
 
 RUN curl \
-        --output /senzingrepo_1.0.0-1_amd64.deb \
-        ${SENZING_APT_REPOSITORY_URL} \
+        --output /${SENZING_APT_REPOSITORY_NAME} \
+        ${SENZING_APT_REPOSITORY_URL}/${SENZING_APT_REPOSITORY_NAME} \
  && apt -y install \
-        /senzingrepo_1.0.0-1_amd64.deb \
+        /${SENZING_APT_REPOSITORY_NAME} \
  && apt update
 
 # Install Senzing package.
@@ -52,17 +54,13 @@ RUN apt -y install ${SENZING_APT_INSTALL_PACKAGE}
 
 FROM ${BASE_IMAGE} AS runner
 
-ENV REFRESHED_AT=2022-07-14
+ARG IMAGE_NAME
+ARG IMAGE_MAINTAINER
+ARG IMAGE_VERSION
 
-LABEL Name="senzing/senzingapi-runtime" \
-      Maintainer="support@senzing.com" \
-      Version="3.1.0"
-
-RUN apt update \
- && apt -y install \
-        libssl1.1 \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+LABEL Name=${IMAGE_NAME} \
+      Maintainer=${IMAGE_MAINTAINER} \
+      Version=${IMAGE_VERSION}
 
 # Copy files from builder.
 
