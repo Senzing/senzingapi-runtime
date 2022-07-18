@@ -47,7 +47,7 @@ RUN wget -qO \
 # Install Senzing package.
 
 RUN apt -y install \
-      libpq \
+      libpq5 \
       ${SENZING_APT_INSTALL_PACKAGE} \
  && apt clean
 
