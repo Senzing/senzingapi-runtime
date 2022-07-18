@@ -46,7 +46,9 @@ RUN wget -qO \
 
 # Install Senzing package.
 
-RUN apt -y install ${SENZING_APT_INSTALL_PACKAGE} \
+RUN apt -y install \
+      libpq \
+      ${SENZING_APT_INSTALL_PACKAGE} \
  && apt clean
 
 # Set environment variables for root.
