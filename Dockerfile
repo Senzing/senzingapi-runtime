@@ -17,7 +17,7 @@ ENV SENZING_ACCEPT_EULA=${SENZING_ACCEPT_EULA} \
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
-      Version="3.1.1"
+      Version="3.1.2"
 
 # Run as "root" for system installation.
 
