@@ -29,8 +29,8 @@ ENV TERM=xterm
 
 # Install packages via apt.
 
-RUN apt update \
- && apt -y install \
+RUN apt-get update \
+ && apt-get -y install \
         wget
 
 # Install Senzing repository index.
@@ -38,17 +38,17 @@ RUN apt update \
 RUN wget -qO \
         /${SENZING_APT_REPOSITORY_NAME} \
         ${SENZING_APT_REPOSITORY_URL}/${SENZING_APT_REPOSITORY_NAME} \
- && apt -y install \
+ && apt-get -y install \
         /${SENZING_APT_REPOSITORY_NAME} \
- && apt update \
+ && apt-get update \
  && rm /${SENZING_APT_REPOSITORY_NAME}
 
 # Install Senzing package.
 
-RUN apt -y install \
+RUN apt-get -y install \
       libpq5 \
       ${SENZING_APT_INSTALL_PACKAGE} \
- && apt clean
+ && apt-get clean
 
 # Set environment variables for root.
 
