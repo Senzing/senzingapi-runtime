@@ -18,8 +18,6 @@ FROM senzing/senzingapi-runtime
 
 ## License
 
-license
-
 View [license information](https://senzing.com/end-user-license-agreement/) for the software container in this Docker image. Note that this license does not permit further distribution.
 
 This Docker image may also contain software from the [Senzing GitHub community](https://github.com/Senzing/) under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
