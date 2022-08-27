@@ -53,6 +53,7 @@ RUN apt-get -y install \
 # Set environment variables for root.
 
 ENV LD_LIBRARY_PATH=/opt/senzing/g2/lib
+ENV PYTHONPATH=/opt/senzing/g2/sdk/python
 
 # Runtime execution.
 
