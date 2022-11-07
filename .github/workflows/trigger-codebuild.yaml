@@ -4,7 +4,9 @@ on:
     branches:
       - main
 jobs:
-  deploy:
+  trigger-codebuild:
+    name: Build docker container - codebuild
+    runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
