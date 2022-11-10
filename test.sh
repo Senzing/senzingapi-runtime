@@ -14,6 +14,7 @@ if test -f "$FILE"; then
     echo "$FILE exists."
 else
     echo "$FILE does not exist."
+    exit 0
 fi
 
 # /opt/senzing/data/libpostal/data_version
@@ -22,4 +23,5 @@ if test -f "$FILE"; then
     echo "$FILE exists."
 else
     echo "$FILE does not exist."
+    exit 0
 fi
