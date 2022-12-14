@@ -35,7 +35,7 @@ fi
 #     "DATA_VERSION": "3.0.0"
 # }
 
-# check that g2build version is the same as the senzing apt installed 
+# check that g2build version is the same as the senzing apt installeds
 FILE=/opt/senzing/g2/g2BuildVersion.json
 if test -f "$FILE"; then
     echo "$FILE exists."
