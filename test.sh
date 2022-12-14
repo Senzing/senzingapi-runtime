@@ -40,7 +40,7 @@ FILE=/opt/senzing/g2/g2BuildVersion.json
 if test -f "$FILE"; then
     echo "$FILE exists."
 
-    # extract build_version from the json
+    # extract build_version from the json 
     BUILD_VERSION=$(cat $FILE | jq ".BUILD_VERSION")
 
     # replace build_version - with .
