@@ -48,6 +48,7 @@ RUN wget -qO \
 RUN apt-get -y install \
       libpq5 \
       ${SENZING_APT_INSTALL_PACKAGE} \
+      jq \
  && apt-get clean
 
 # Set environment variables for root.
@@ -56,8 +57,8 @@ ENV LD_LIBRARY_PATH=/opt/senzing/g2/lib
 
 # add test file
 COPY ./test.sh /
+RUN chmod +x /test.sh
 
 # Runtime execution.
-
 WORKDIR /
 CMD ["/bin/bash"]
