@@ -1,11 +1,11 @@
-name: Trigger codebuild
+name: Trigger deploy codebuild
 on:
   pull_request:
     branches:
       - main
 jobs:
-  trigger-codebuild:
-    name: Build docker container - codebuild
+  trigger-deploy-codebuild:
+    name: Trigger deploy codebuild
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
@@ -17,5 +17,5 @@ jobs:
       - name: Run CodeBuild
         uses: aws-actions/aws-codebuild-run-build@v1
         with:
-          project-name: build-test-senzingapi-runtime
-          # buildspec-override: test/test.yml
+          project-name: deploy-senzing-container
+          buildspec-override: deploy/deploy.yml

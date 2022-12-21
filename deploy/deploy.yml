@@ -2,30 +2,23 @@ version: 0.2
 
 env:
   variables:
-    DOCKER_IMAGE_TAG: "senzingapi-runtime:latest"
-  secrets-manager:
-    DOCKERHUB_PASS: "/dockerhub/credentials:password"
-    DOCKERHUB_USER: "/dockerhub/credentials:username"
+    IMAGE_REPO_NAME: "senzingapi-runtime"
+    IMAGE_TAG: "latest"
+    ECR_URI: "283428323412.dkr.ecr.us-east-1.amazonaws.com"
 
 phases:
-  install:
-    commands:
-      - echo Entered the install phase...
-      - apt-get update -y
   pre_build:
     commands:
-      - echo Entered the pre_build phase...
-      - docker login --username $DOCKERHUB_USER --password $DOCKERHUB_PASS
-    finally:
-      - echo This always runs even if the login command fails 
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_URI
   build:
     commands:
-      - echo Entered the build phase...
       - echo Build started on `date`
-      - docker build -t $DOCKER_IMAGE_TAG .
-      - echo Build completed on `date`
+      - echo Building the Docker image...          
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $ECR_URI/$IMAGE_REPO_NAME:$IMAGE_TAG      
   post_build:
     commands:
-      - echo Entered the post_build phase...
-      - echo Running test
-      - docker run $DOCKER_IMAGE_TAG ./test.sh
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $ECR_URI/$IMAGE_REPO_NAME:$IMAGE_TAG

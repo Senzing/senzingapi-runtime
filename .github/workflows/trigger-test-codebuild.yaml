@@ -1,11 +1,11 @@
-name: Build and Push docker image to ECR
+name: Trigger test codebuild
 on:
-  push:
+  pull_request:
     branches:
-      - test-main-chia
+      - main
 jobs:
-  trigger-codebuild:
-    name: Build docker container - codebuild
+  trigger-test-codebuild:
+    name: Trigger test codebuild
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
@@ -18,3 +18,4 @@ jobs:
         uses: aws-actions/aws-codebuild-run-build@v1
         with:
           project-name: build-test-senzingapi-runtime
+          buildspec-override: test/test.yml
