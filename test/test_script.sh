@@ -42,7 +42,7 @@ if test -f "$FILE"; then
     echo "$FILE exists."
 
     # extract build_version from the json 
-    BUILD_VERSION=$(cat $FILE | jq ".BUILD_VERSION")
+    BUILD_VERSION=$(cat $FILE | jq ".BUILD_VERSION" | cut -d '"' -f 2)
 
     # replace build_version - with .
     SZ_APT_PKG_VERSION=$(echo $SENZING_APT_INSTALL_PACKAGE | sed 's/\(.*\)-/\1./' | cut -d "=" -f 2)
