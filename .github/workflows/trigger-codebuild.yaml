@@ -18,4 +18,4 @@ jobs:
         uses: aws-actions/aws-codebuild-run-build@v1
         with:
           project-name: build-test-senzingapi-runtime
-          buildspec-override: test/test.yml
+          # buildspec-override: test/test.yml

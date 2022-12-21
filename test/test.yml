@@ -10,7 +10,7 @@ env:
 phases:
   install:
     commands:
-      - echo Entered the overwritten install phase...
+      - echo Entered the install phase...
       - apt-get update -y
   pre_build:
     commands:
