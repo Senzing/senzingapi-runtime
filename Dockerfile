@@ -56,8 +56,8 @@ RUN apt-get -y install \
 ENV LD_LIBRARY_PATH=/opt/senzing/g2/lib
 
 # add test file
-COPY test/test.sh /test.sh
-RUN chmod +x /test.sh
+COPY test/test_script.sh /test_script.sh
+RUN chmod +x /test_script.sh
 
 # Runtime execution.
 WORKDIR /
