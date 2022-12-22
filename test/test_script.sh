@@ -27,7 +27,7 @@ else
     exit 1
 fi
 
-# parse /opt/senzing/g2/g2BuildVersion.json, get BUILD_VERSION and compare it with SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.3.1-22283"
+# parse /opt/senzing/g2/g2BuildVersion.json, get BUILD_VERSION and compare it with SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.3.1-22283" 
 # {
 #     "PLATFORM": "Linux",
 #     "VERSION": "3.3.2",
