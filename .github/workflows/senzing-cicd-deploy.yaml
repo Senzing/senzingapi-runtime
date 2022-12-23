@@ -1,11 +1,11 @@
-name: Trigger deploy codebuild
+name: Senzing CI/CD Deploy
 on:
   pull_request:
     branches:
       - main
 jobs:
-  trigger-deploy-codebuild:
-    name: Trigger deploy codebuild
+  senzing-cicd-deploy:
+    name: Deploy to ECR via codebuild
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
@@ -18,4 +18,4 @@ jobs:
         uses: aws-actions/aws-codebuild-run-build@v1
         with:
           project-name: deploy-senzing-container
-          buildspec-override: deploy/deploy.yml
+          buildspec-override: cicd-deploy/deploy.yml

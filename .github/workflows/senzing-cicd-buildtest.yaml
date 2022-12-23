@@ -1,11 +1,11 @@
-name: Trigger test codebuild
+name: Senzing CI/CD Build & Test
 on:
   pull_request:
     branches:
       - main
 jobs:
-  trigger-test-codebuild:
-    name: Trigger test codebuild
+  senzing-cicd-buildtest:
+    name: Build and test code via codebuild
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
@@ -18,4 +18,4 @@ jobs:
         uses: aws-actions/aws-codebuild-run-build@v1
         with:
           project-name: build-test-senzingapi-runtime
-          buildspec-override: test/test.yml
+          buildspec-override: cicd-test/test.yml
