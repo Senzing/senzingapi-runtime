@@ -1,14 +1,12 @@
 # Codebuild CI/CD Pipeline
 
-The goal of the Codebuild CI/CD pipeline is provide a scaffold for Senzing developers to easily automate pesky devops tasks such as testing and deployment.
+The goal of the Codebuild CI/CD pipeline is to provide a scaffold for Senzing developers to easily automate pesky devops tasks such as testing and deployment.
 
 ## Overview
 
 Currently, the pipeline seeks to automate 2 task
-- test code change to smoke out any breaking changes
-- deploy code that is pushed to the main branch to the specified container registry
-
-Additional instructions can also be found here on how this pipeline can be extended.
+1. Test any changes in the source code to smoke out breaking changes before it is integrated into the main branch.
+1. Build code that is merged into the main branch and deploy to it's respective container registry
 
 The following is a flow diagram of the automation done with github action and codebuild.
 
