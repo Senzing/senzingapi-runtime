@@ -32,6 +32,9 @@ I also like the access to a vast ecosystem that codebuild offers. One shortfall 
 With what is mentioned above, this ci/cd pipeline uses both github actions and codebuild, so that we are able to marry the benefits from each product.
 
 ## Configure test pipeline
+
+To configure the test pipeline, lets first start from the source of the trigger, the github 
+
 ## Configure deploy pipeline
 ## Deploy new pipeline
 
