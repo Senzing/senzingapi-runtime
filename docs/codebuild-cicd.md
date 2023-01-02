@@ -14,10 +14,11 @@ The following is a flow diagram of the automation done with github action and co
 
 ## Contents
 1. [Pre-requisites](#pre-requisites)
+1. [Design considerations](#design-considerations)
 1. [Configure test pipeline](#configure-test-pipeline)
 1. [Configure deploy pipeline](#configure-deploy-pipeline)
 1. [Deploy new pipeline](#deploy-new-pipeline)
-1. [Design considerations](#design-considerations)
+
 
 ## Pre-requisites
 1. Senzing AWS account
