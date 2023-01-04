@@ -25,11 +25,21 @@ The following is a flow diagram of the automation done with github action and co
 
 ## Design considerations
 
-When designing this pipeline, a couple of factors were considered. First, I liked the simplicity and convenience of github actions. It was easy to setup, and it provided me with the convenience of notification built in. When a github action fails, it would block the pull request and send a notifiction via email to the developer by default. Additionally, it was easy to setup, simply put a yaml file in the .github/workflows folder and you are good to go. This allows developers to take charge and customize their own pipeline.
+The following are some design considerations when building this pipeline.
 
-I also like the access to a vast ecosystem that codebuild offers. One shortfall for github is that it is rather limited in the environment that it provides. Whereas in codebuild, it has access to the full suite of products that are available in AWS e.g. lambda, cloudformation, ecs. This grants a developer the power to create more sophisticated test cases, e.g. recreating an environment and testing if the code change breaks anything within that environment.
+1. Simplicity
+   
+The setup for this pipeline should be simple and intuitive for a developer to use. Similar to github actions, the developer would just need to make modifications to buildspec file to customize their own test/deploy pipeline.
+   
+2. Convenience
+   
+The pipeline should come with certain features out of the box. E.g. when a test fails, it should immediately block the pull request and notify the developer via email.
 
-With what is mentioned above, this ci/cd pipeline uses both github actions and codebuild, so that we are able to marry the benefits from each product.
+3. Access to resource
+
+The pipeline should have access to a vast number of resources. One major shortfall for github action is that it is rather limited in its environment, whereas codebuild has access to a full suite of products that are available in AWS (e.g. lambda, cloudformation).
+
+To achieve the design considerations above, the pipeline a mix of both github actions and codebuild, so that it is able to reap the benefits from each product.
 
 ## Configure test pipeline
 
