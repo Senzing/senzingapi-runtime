@@ -1,6 +1,6 @@
 name: Senzing CI/CD Deploy
 on:
-  pull_request:
+  push:
     branches:
       - main
 jobs:
