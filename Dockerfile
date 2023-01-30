@@ -4,11 +4,11 @@ FROM ${BASE_IMAGE}
 # Create the build image.
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
-ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.4.0-23005"
+ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.4.1-23023"
 ARG SENZING_APT_REPOSITORY_NAME="senzingrepo_1.0.1-1_amd64.deb"
 ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com"
 
-ENV REFRESHED_AT=2023-01-12
+ENV REFRESHED_AT=2023-01-30
 
 ENV SENZING_ACCEPT_EULA=${SENZING_ACCEPT_EULA} \
     SENZING_APT_INSTALL_PACKAGE=${SENZING_APT_INSTALL_PACKAGE} \
@@ -17,7 +17,7 @@ ENV SENZING_ACCEPT_EULA=${SENZING_ACCEPT_EULA} \
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
-      Version="3.4.0"
+      Version="3.4.1"
 
 # Run as "root" for system installation.
 
@@ -55,10 +55,12 @@ RUN apt-get -y install \
 
 ENV LD_LIBRARY_PATH=/opt/senzing/g2/lib
 
-# add test file
+# Add test file.
+
 COPY cicd-test/test_script.sh /test_script.sh
 RUN chmod +x /test_script.sh
 
 # Runtime execution.
+
 WORKDIR /
 CMD ["/bin/bash"]
