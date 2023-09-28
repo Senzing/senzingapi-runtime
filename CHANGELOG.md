@@ -6,13 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [markdownlint](https://dlaa.me/markdownlint/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.7.1] - 2023-09-27
+## [3.7.1] - 2023-09-28
 
 ### Changed in 3.7.1
 
 - Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.7.1-23269"
 
-## [3.7.0] - 2023-09-27
+## [3.7.0] - 2023-09-28
 
 ### Changed in 3.7.0
 
