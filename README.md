@@ -14,6 +14,12 @@ file by setting it as the base image.
 FROM senzing/senzingapi-runtime
 ```
 
+To determine which versions of Senzing are being used in local repositories, run
+
+```console
+docker image inspect --format '{{.Config.Labels.SenzingAPI}}  {{.RepoTags}}' $(docker images --filter "label=SenzingAPI" --format "{{.Repository}}:{{.Tag}}") | sort | uniq
+```
+
 ## License
 
 View [license information](https://senzing.com/end-user-license-agreement/) for the software container in this Docker image. Note that this license does not permit further distribution.
