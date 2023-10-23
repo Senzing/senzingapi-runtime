@@ -56,5 +56,3 @@ else
     echo "[ERROR] $FILE does not exist."
     exit 1
 fi
-
-exit 1
