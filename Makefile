@@ -8,6 +8,9 @@ GIT_VERSION := $(shell git describe --always --tags --long --dirty | sed -e 's/\
 DOCKER_IMAGE_TAG ?= $(GIT_REPOSITORY_NAME):$(GIT_VERSION)
 DOCKER_IMAGE_NAME := senzing/senzingapi-runtime
 
+# Test variables
+CONTAINER_ID := $(docker ps -a | grep testrun | awk '{ print $1 }')
+
 # -----------------------------------------------------------------------------
 # The first "make" target runs as default.
 # -----------------------------------------------------------------------------
@@ -34,7 +37,7 @@ docker-build:
 docker-test:
 	docker create --name testrun $(DOCKER_IMAGE_NAME)
 	docker cp .github/scripts/docker_test_script.sh testrun:docker_test_script.sh
-	docker commit $(docker ps -a | grep testrun | awk '{ print $1 }') $(DOCKER_IMAGE_NAME)
+	docker commit $(CONTAINER_ID) $(DOCKER_IMAGE_NAME)
 	docker run $(DOCKER_IMAGE_NAME) ./docker_test_script.sh
 
 # -----------------------------------------------------------------------------
