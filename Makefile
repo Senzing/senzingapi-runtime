@@ -8,9 +8,6 @@ GIT_VERSION := $(shell git describe --always --tags --long --dirty | sed -e 's/\
 DOCKER_IMAGE_TAG ?= $(GIT_REPOSITORY_NAME):$(GIT_VERSION)
 DOCKER_IMAGE_NAME := senzing/senzingapi-runtime
 
-# Test variables
-CONTAINER_ID := $(docker ps -a | grep testrun | awk '{ print $1 }')
-
 # -----------------------------------------------------------------------------
 # The first "make" target runs as default.
 # -----------------------------------------------------------------------------
