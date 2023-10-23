@@ -12,6 +12,6 @@ jobs:
       - name: Build docker image
         uses: Senzing/github-action-docker-buildx-build@latest
         with:
-          image-repository: senzing/test
+          image-repository: senzing/senzingapi-runtime
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
