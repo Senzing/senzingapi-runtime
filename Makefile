@@ -37,7 +37,7 @@ docker-build:
 docker-test:
 	docker create --name testrun $(DOCKER_IMAGE_NAME)
 	docker cp .github/scripts/docker_test_script.sh testrun:docker_test_script.sh
-	docker commit $(CONTAINER_ID) $(DOCKER_IMAGE_NAME)
+	docker commit $$(docker ps -a | grep testrun | awk '{ print $1 }') $(DOCKER_IMAGE_NAME)
 	docker run $(DOCKER_IMAGE_NAME) ./docker_test_script.sh
 
 # -----------------------------------------------------------------------------
