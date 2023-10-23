@@ -32,7 +32,10 @@ docker-build:
 
 .PHONY: docker-test
 docker-test:
-	docker run $(DOCKER_IMAGE_NAME) .github/scripts/docker_test_script.sh
+	docker create --name testrun $(DOCKER_IMAGE_NAME)
+	docker cp .github/scripts/docker_test_script.sh testrun:docker_test_script.sh
+	docker commit $(docker ps -a | grep testrun | awk '{ print $1 }') $(DOCKER_IMAGE_NAME)
+	docker run $(DOCKER_IMAGE_NAME) ./docker_test_script.sh
 
 # -----------------------------------------------------------------------------
 # Clean up targets
