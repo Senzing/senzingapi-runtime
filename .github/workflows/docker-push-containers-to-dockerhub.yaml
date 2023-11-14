@@ -9,9 +9,11 @@ jobs:
   docker-push-containers-to-dockerhub:
     runs-on: ubuntu-latest
     steps:
-      - name: Build docker image
+      - name: Build docker image and push to DockerHub
         uses: Senzing/github-action-docker-buildx-build@latest
         with:
+          build-options: "--push"
           image-repository: senzing/senzingapi-runtime
+          image-tag: ${{ github.ref_name }}
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
