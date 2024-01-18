@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build docker image
-        uses: Senzing/github-action-docker-buildx-build@latest
+        uses: Senzing/github-action-docker-buildx-build@#14-skern
         with:
           image-repository: senzing/senzingapi-runtime
           image-tag: ${{ github.ref_name }}
