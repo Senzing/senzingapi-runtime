@@ -1,14 +1,14 @@
-ARG BASE_IMAGE=debian:11.8-slim@sha256:19664a5752dddba7f59bb460410a0e1887af346e21877fa7cec78bfd3cb77da5
+ARG BASE_IMAGE=debian:11.8-slim@sha256:41c3fecb70015fd9c72d6df95573de3f92d5f4f46fdabe8dbd8d2bfb1531594d
 FROM ${BASE_IMAGE}
 
 # Create the build image.
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
-ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.8.0-23303"
+ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.8.2-24011"
 ARG SENZING_APT_REPOSITORY_NAME="senzingrepo_1.0.1-1_all.deb"
 ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com"
 
-ENV REFRESHED_AT=2023-11-14
+ENV REFRESHED_AT=2024-01-19
 
 ENV SENZING_ACCEPT_EULA=${SENZING_ACCEPT_EULA} \
     SENZING_APT_INSTALL_PACKAGE=${SENZING_APT_INSTALL_PACKAGE} \
@@ -17,8 +17,8 @@ ENV SENZING_ACCEPT_EULA=${SENZING_ACCEPT_EULA} \
 
 LABEL Name="senzing/senzingapi-runtime" \
       Maintainer="support@senzing.com" \
-      Version="3.8.0" \
-      SenzingAPI="3.8.0"
+      Version="3.8.2" \
+      SenzingAPI="3.8.2"
 
 # Run as "root" for system installation.
 
