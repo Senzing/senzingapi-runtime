@@ -4,8 +4,8 @@ FROM ${BASE_IMAGE}
 # Create the build image.
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
-ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.9.0-24071"
-ARG SENZING_APT_REPOSITORY_NAME="senzingrepo_1.0.1-1_all.deb"
+ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.10.1-24135"
+ARG SENZING_APT_REPOSITORY_NAME="senzingrepo_2.0.0-1_all.deb"
 ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com"
 
 ENV REFRESHED_AT=2024-05-21
@@ -17,8 +17,8 @@ ENV SENZING_ACCEPT_EULA=${SENZING_ACCEPT_EULA} \
 
 LABEL Name="senzing/senzingapi-runtime" \
   Maintainer="support@senzing.com" \
-  Version="3.9.0" \
-  SenzingAPI="3.9.0"
+  Version="3.10.1" \
+  SenzingAPI="3.10.1"
 
 # Run as "root" for system installation.
 
