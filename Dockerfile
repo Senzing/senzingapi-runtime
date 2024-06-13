@@ -52,6 +52,10 @@ RUN apt-get -y install \
   jq \
   && apt-get clean
 
+HEALTHCHECK CMD apt list --installed | grep senzingapi-runtime
+
+USER 1001
+
 # Set environment variables for root.
 
 ENV LD_LIBRARY_PATH=/opt/senzing/g2/lib
