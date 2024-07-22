@@ -1,18 +1,30 @@
 # senzingapi-runtime
 
+## Synopsis
+
+A Docker image with Senzingapi library installed.
+
 ## Overview
 
-The `senzing/senzingapi-runtime` docker image is pre-installed with the Senzingapi library
-to help simplify creating applications that use the Senzingapi library.
+The `senzing/senzingapi-runtime` Docker image has the Senzingapi library installed
+to simplify creating applications that use the Senzingapi library.
+
+The `senzing/senzingapi-runtime` Docker image is not intended to be run as a container directly.
+Rather, it's intention is to be a Docker "base image" that is extended.
+As such, the `senzing/senzingapi-runtime` Docker image is a "root container".
 
 ## Use
 
-In a Dockerfile, the docker image created by this repo can be used in a Docker
-file by setting it as the base image.
+In your `Dockerfile`, set the base image to `senzing/senzingapi-runtime`.
+Example:
 
 ```Dockerfile
 FROM senzing/senzingapi-runtime
 ```
+
+**Note:** To simplify extending the Docker image,
+the `senzing/senzingapi-runtime` image is `USER root`.
+As a best practice, the final image should be a non-root user.
 
 To determine which versions of Senzing are being used in local repositories, run
 
