@@ -1,5 +1,10 @@
 # senzingapi-runtime
 
+:warning:
+
+In version 3.10.3 the Dockerfile and [Docker image] ran as `USER 1001` (not `root`).
+This will be reverted back to a "root container" in the next release.
+
 ## Synopsis
 
 A Docker image with Senzingapi library installed.
@@ -41,3 +46,5 @@ This Docker image may also contain software from the [Senzing GitHub community](
 Further, as with all Docker images, this likely also contains other software which may be under other licenses (such as Bash, etc. from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
 As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
+
+[Docker image]: https://hub.docker.com/r/senzing/senzingapi-runtime/tags
