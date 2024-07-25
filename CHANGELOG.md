@@ -8,9 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.10.3+1] - 2024-07-25
+
+### Changed in 3.10.3+1
+
 - In `Dockerfile`, remove `USER 1001`
 
 ## [3.10.3] - 2024-06-24
+
+**Note:** This release is superceeded by `3.10.3+1` which reinstated the root container.
 
 ### Changed in 3.10.3
 
