@@ -1,7 +1,6 @@
 # senzingapi-runtime
 
 :warning:
-
 In version 3.10.3 the Dockerfile and [Docker image] ran as `USER 1001` (not `root`).
 This will be reverted back to a "root container" in the next release.
 
