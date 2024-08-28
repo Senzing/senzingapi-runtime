@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=debian:testing-signed-commits-2
+ARG BASE_IMAGE=debian:testing-signed-commits-3
 FROM ${BASE_IMAGE}
 
 # Create the build image.
