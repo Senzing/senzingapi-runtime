@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.12.0] - 2024-07-25
+
+### Changed in 3.12.0
+
+- Updated to `debian:11.9-slimdebian:11.11-slim@sha256:00558f781b91e90469812bad32002f311ab26ef241b4a1996f6600680ec82f5c`
+- Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.0-24261"
+
 ## [3.10.3+1] - 2024-07-25
 
 ### Changed in 3.10.3+1
