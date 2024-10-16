@@ -1,0 +1,28 @@
+name: docker push containers to dockerhub - staging
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docker-push-containers-to-dockerhub-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repo name
+        id: repo-basename
+        run: |
+          echo "repo=$(basename ${{ github.repository }})" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Build docker image and push to DockerHub
+        uses: senzing-factory/github-action-docker-buildx-build@v1
+        with:
+          build-options: "--push --build-arg SENZING_APT_INSTALL_PACKAGE=senzingapi-runtime --build-arg SENZING_APT_REPOSITORY_NAME=senzingstagingrepo_2.0.0-1_all.deb  --build-arg SENZING_APT_REPOSITORY_URL=https://senzing-staging-apt.s3.amazonaws.com"
+          image-repository: senzing/${{ steps.repo-basename.outputs.repo }}-staging
+          image-tag: latest
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+          platforms: "linux/amd64,linux/arm64"
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
