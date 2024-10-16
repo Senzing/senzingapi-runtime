@@ -1,7 +1,8 @@
 name: docker push containers to dockerhub - staging
 
-on:
-  workflow_dispatch:
+on: [push]
+#on:
+#  workflow_dispatch:
 
 permissions:
   contents: read
