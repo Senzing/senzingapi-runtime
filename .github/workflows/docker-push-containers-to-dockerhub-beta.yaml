@@ -1,7 +1,7 @@
 name: docker push containers to dockerhub - beta
 
-on: [push]
-#  workflow_dispatch:
+on:
+  workflow_dispatch:
 
 permissions:
   contents: read
