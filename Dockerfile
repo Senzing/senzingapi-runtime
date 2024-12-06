@@ -32,24 +32,24 @@ ENV TERM=xterm
 
 RUN apt-get update \
  && apt-get -y install \
-      wget
+        wget
 
 # Install Senzing repository index.
 
 RUN wget -qO \
-      /${SENZING_APT_REPOSITORY_NAME} \
-      ${SENZING_APT_REPOSITORY_URL}/${SENZING_APT_REPOSITORY_NAME} \
+        /${SENZING_APT_REPOSITORY_NAME} \
+        ${SENZING_APT_REPOSITORY_URL}/${SENZING_APT_REPOSITORY_NAME} \
  && apt-get -y install \
-      /${SENZING_APT_REPOSITORY_NAME} \
+        /${SENZING_APT_REPOSITORY_NAME} \
  && apt-get update \
  && rm /${SENZING_APT_REPOSITORY_NAME}
 
 # Install Senzing package.
 
 RUN apt-get -y install \
-      libpq5 \
-      ${SENZING_APT_INSTALL_PACKAGE} \
-      jq \
+        libpq5 \
+        ${SENZING_APT_INSTALL_PACKAGE} \
+        jq \
  && apt-get clean
 
 HEALTHCHECK CMD apt list --installed | grep senzingapi-runtime
