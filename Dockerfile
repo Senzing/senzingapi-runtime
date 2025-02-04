@@ -4,7 +4,7 @@ FROM ${BASE_IMAGE}
 # Create the build image.
 
 ARG SENZING_ACCEPT_EULA="I_ACCEPT_THE_SENZING_EULA"
-ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.5-250xx"
+ARG SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.5-25031"
 ARG SENZING_APT_REPOSITORY_NAME="senzingrepo_2.0.0-1_all.deb"
 ARG SENZING_APT_REPOSITORY_URL="https://senzing-production-apt.s3.amazonaws.com"
 

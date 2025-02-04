@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning].
 ### Changed in 3.12.5
 
 - Updated to `debian:11.11-slim`
-- Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.5-250xx"
+- Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.5-25031"
 
 ## [3.12.0] - 2024-07-25
 
