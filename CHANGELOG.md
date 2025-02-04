@@ -7,11 +7,18 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [3.12.5] - 2025-02-04
+
+### Changed in 3.12.5
+
+- Updated to `debian:11.11-slim`
+- Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.5-250xx"
+
 ## [3.12.0] - 2024-07-25
 
 ### Changed in 3.12.0
 
-- Updated to `debian:11.9-slimdebian:11.11-slim@sha256:00558f781b91e90469812bad32002f311ab26ef241b4a1996f6600680ec82f5c`
+- Updated to `debian:11.11-slim@sha256:00558f781b91e90469812bad32002f311ab26ef241b4a1996f6600680ec82f5c`
 - Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.0-24261"
 
 ## [3.10.3+1] - 2024-07-25
