@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning].
 
 ## [3.10.3] - 2024-06-24
 
-**Note:** This release is superceeded by `3.10.3+1` which reinstated the root container.
+**Note:** This release is superseded by `3.10.3+1` which reinstated the root container.
 
 ### Changed in 3.10.3
 
@@ -191,4 +191,3 @@ and this project adheres to [Semantic Versioning].
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
 [markdownlint]: https://dlaa.me/markdownlint/
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-
