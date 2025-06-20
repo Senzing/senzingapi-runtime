@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [3.12.8] - 2025-06-20
+
+### Changed in 3.12.8
+
+- Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.12.8-25153"
+
 ## [3.12.6] - 2025-03-18
 
 ### Changed in 3.12.6
