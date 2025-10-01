@@ -14,6 +14,7 @@
     "Dockerfiles",
     "dockerhub",
     "ICLA",
+    "ignorefile",
     "libpostal",
     "libpq",
     "projectatomic",
