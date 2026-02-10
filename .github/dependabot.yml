@@ -1,6 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
+    assignees:
+      - kernelsam
     cooldown:
       default-days: 21
     directory: "/"
