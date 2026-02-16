@@ -2,9 +2,15 @@ version: 2
 updates:
   - package-ecosystem: "github-actions"
     assignees:
-      - kernelsam
+      - "kernelsam"
     cooldown:
       default-days: 21
+      exclude-patterns:
+        - "senzing-factory/*"
     directory: "/"
+    groups:
+      senzing-factory:
+        patterns:
+          - "senzing-factory/*"
     schedule:
       interval: "daily"
