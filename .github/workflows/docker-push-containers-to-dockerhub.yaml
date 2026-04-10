@@ -31,6 +31,7 @@ jobs:
           push: true
           sign-image: true
           username: ${{ secrets.DOCKERHUB_USERNAME }}
+
       - name: Notify Slack on failure
         if: (failure() || cancelled())
         uses: senzing-factory/build-resources/slack-failure-notification@v4
