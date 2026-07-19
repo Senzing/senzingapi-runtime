@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=debian:13.3-slim@sha256:1d3c811171a08a5adaa4a163fbafd96b61b87aa871bbc7aa15431ac275d3d430
+ARG BASE_IMAGE=debian:13.5-slim@sha256:28de0877c2189802884ccd20f15ee41c203573bd87bb6b883f5f46362d24c5c2
 FROM ${BASE_IMAGE}
 
 # Create the build image.
