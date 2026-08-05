@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [3.13.2] - 2026-08-05
+
+### Changed in 3.13.2
+
+- Updated to `debian:13.5-slim`
+- Updated to SENZING_APT_INSTALL_PACKAGE="senzingapi-runtime=3.13.2-26210"
+
 ## [3.13.1] - 2026-06-17
 
 ### Changed in 3.13.1
